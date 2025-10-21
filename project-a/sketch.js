@@ -23,8 +23,7 @@ let opacity = 255
 
 
 function setup() {
-  createCanvas(800, 500)
-   canvas.id("p5-canvas");
+  let canvas = createCanvas(800, 500)
   canvas.parent("p5-canvas-container");
 
   bodyX = 100
