@@ -119,19 +119,6 @@ class AustinDancer {
     arc(1.5 * this.limbX - 6, 2 * this.limbY + 5, 20, 20, 2.7, TWO_PI - 0.6)
 
     pop()
-
-    this.drawReferenceShapes()
-  }
-  drawReferenceShapes() {
-    translate(this.x, this.y)
-    noFill();
-    stroke(255, 0, 0);
-    line(-5, 0, 5, 0);
-    line(0, -5, 0, 5);
-    stroke(255);
-    rect(-100, -100, 200, 200);
-    fill(255);
-    stroke(0);
   }
 }
 
