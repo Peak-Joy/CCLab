@@ -17,7 +17,7 @@ function setup() {
 }
 
 function draw() {
-  background(50);
+  background(100, 0, 0);
 
   // consider generating particles in draw(), using Dynamic Array
 
@@ -57,7 +57,7 @@ class Particle {
   display() {
     // particle's appearance
     push();
-
+    //stroke(255, 0, 0)
     line(this.x1, this.y1, this.x2, this.y2)
     pop();
   }
