@@ -1,11 +1,13 @@
 let Sound1;
 let Sound2
+let mySound
 let x = 11
 let y = 200
 let speed = 2
 function preload() {
   Sound1 = loadSound("assets/kick.mp3");
   Sound2 = loadSound("assets/beat.mp3")
+  mySound = loadSound("assets/song.mp3")
 }
 function setup() {
   let canvas = createCanvas(400, 400);
@@ -25,11 +27,13 @@ function draw() {
     speed = -speed;
     Sound2.play();
   }
+  print(mousePressed)
 }
 function mousePressed() {
   if (mySound.isPlaying() == false) {
     mySound.play();
   } else {
-    mySound.pause();
+    //mySound.pause();
+    text("click me!", width / 2, height / 2)
   }
 }
