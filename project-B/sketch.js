@@ -70,7 +70,7 @@ function preload() {
   room7BadIMG = loadImage('assets/dk-bad.png')
   room7MidIMG = loadImage('assets/dk-normal.png')
   room7GoodIMG = loadImage('assets/dk-good.png')
-  deathFallenIMG = loadImage('assets/Fallen.png')
+  deathFallenIMG = loadImage('assets/fallen.png')
   deathEatenIMG = loadImage('assets/Eaten.png')
   slimeKillIMG = loadImage('assets/slime-kill.png')
   demonKillIMG = loadImage('assets/demon-kill.png')
