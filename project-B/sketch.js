@@ -652,6 +652,7 @@ function room7() {
     image(room7GoodIMG, 0, 0)
   }
   if (keyIsDown(81) === true) {
+    karma = 0
     music.stop()
     musicPlaying = true
     inRoom7 = false
@@ -668,6 +669,7 @@ function deathEaten() {
   if (keyIsDown(81) === true) {
     musicPlaying = true
     diedEaten = false
+    karma = 0
     inRoom1 = true
   }
   x = 380
@@ -681,6 +683,7 @@ function deathFallen() {
   text('q to restart', 600, 450)
   if (keyIsDown(81) === true) {
     musicPlaying = true
+    karma = 0
     diedFallen = false
     inRoom1 = true
   }
