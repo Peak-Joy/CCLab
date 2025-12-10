@@ -33,6 +33,7 @@ let gaveFood = false
 let ready = false
 let dkRoom = false
 let endMono = false
+let musicPlaying = true
 
 let startIMG
 let blackScreen
@@ -52,6 +53,7 @@ let room3IMG
 let room4IMG
 let room5IMG
 let room6IMG
+let music
 
 function preload() {
   startIMG = loadImage('assets/start.png')
@@ -75,6 +77,7 @@ function preload() {
   slimeKillIMG = loadImage('assets/slime-kill.png')
   demonKillIMG = loadImage('assets/demon-kill.png')
   dkIMG = loadImage('assets/dk.png')
+  music = loadSound('assets/song.mp3')
 }
 
 function setup() {
@@ -83,6 +86,11 @@ function setup() {
 }
 
 function draw() {
+  if (musicPlaying == true) {
+    music.setVolume(0.1)
+    music.play()
+    musicPlaying = false
+  }
   if (started == true) {
     startScreen()
   }
@@ -147,7 +155,7 @@ function draw() {
 }
 
 function startScreen() {
-  image(startIMG, 0, 0)
+  image(startIMG, 0, 0, width, height)
   textSize(32)
   textFont("Tiny5")
   text('move with WASD, e - interact/skip text, q - retry', 50, 450)
@@ -283,6 +291,7 @@ function goAround() {
 }
 
 function slimeKill() {// kill slime
+  music.pause()
   image(slimeKillIMG, 0, 0)
 
   if (keyIsDown(69) === true) {
@@ -296,6 +305,7 @@ function slimeKill() {// kill slime
       alpha = 0
       inRoom3 = true
       slimeKilled = false
+      musicPlaying = true
     }
   }
 }
@@ -469,6 +479,7 @@ function room6() {//demon-event
     text('KILL', 150, 350)
     hoveringLeft = true
     if (mouseIsPressed === true) {
+      music.pause()
       killedDemon = true
       inRoom6 = false
       karma = karma + 1
@@ -536,6 +547,7 @@ function demonKilled() {
       alpha = 0
       ready = true
       killedDemon = false
+      musicPlaying = true
     }
   }
 }
@@ -591,6 +603,7 @@ function endingMonologue() {
     textFont("Tiny5")
     text(text7, 40, 40, 720, 420)
     pop()
+    music.stop()
   }
   if (karma == 0) {
     let text8 = 'You declare to the demon king that you are here for the Ring of Life. In response, the demon king demands to test if you are strong enough to earn the treasure. Accepting the challenge, you fight the demon king. After a long battle, the demon king deems you worthy of the ring. for now...'
@@ -639,6 +652,8 @@ function room7() {
     image(room7GoodIMG, 0, 0)
   }
   if (keyIsDown(81) === true) {
+    music.stop()
+    musicPlaying = true
     inRoom7 = false
     inRoom1 = true
     charReset = false
@@ -648,8 +663,10 @@ function room7() {
 
 function deathEaten() {
   image(deathEatenIMG, 0, 0)
+  music.stop()
   text('q to restart', 600, 450)
   if (keyIsDown(81) === true) {
+    musicPlaying = true
     diedEaten = false
     inRoom1 = true
   }
@@ -660,8 +677,10 @@ function deathEaten() {
 
 function deathFallen() {
   image(deathFallenIMG, 0, 0)
+  music.stop()
   text('q to restart', 600, 450)
   if (keyIsDown(81) === true) {
+    musicPlaying = true
     diedFallen = false
     inRoom1 = true
   }
