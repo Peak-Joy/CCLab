@@ -33,7 +33,7 @@ let gaveFood = false
 let ready = false
 let dkRoom = false
 let endMono = false
-let musicPlaying = true
+let musicPlaying = false
 
 let startIMG
 let blackScreen
@@ -167,6 +167,7 @@ function startScreen() {
     if (fadedOut) {
       fadingOut = false
       fadedOut = false
+      musicPlaying = true
       alpha = 0
       storyStarted = true
       started = false
